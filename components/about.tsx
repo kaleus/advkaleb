@@ -7,7 +7,7 @@ export function About() {
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 md:grid-cols-2 md:py-28">
         <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border md:aspect-square">
           <Image
-            src="/images/kaleb.jpg"
+            src={`${basePath}/images/kaleb.jpg`}
             alt="Kaleb dos Santos Ramos, advogado"
             fill
             priority
