@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { MessageCircle, MapPin } from 'lucide-react'
-import { whatsappUrl, site } from '@/lib/site'
+import { whatsappUrl, site, basePath } from '@/lib/site'
 
 export function Hero() {
   return (
