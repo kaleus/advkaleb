@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { site } from '@/lib/site'
+import { site, basePath } from '@/lib/site'
 
 export function About() {
   return (
