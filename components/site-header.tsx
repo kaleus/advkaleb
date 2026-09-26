@@ -19,14 +19,22 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href="#top" className="flex items-center gap-3">
-          <Image
-            src={`${basePath}/images/logo-mark.png`}
-            alt="Kaleb Ramos"
-            width={40}
-            height={40}
-            className="size-10"
-            priority
-          />
+          <span className="relative flex size-10 shrink-0">
+            <Image
+              src={`${basePath}/images/logo-mark.png`}
+              alt="Kaleb Ramos"
+              fill
+              className="object-contain [@media(prefers-color-scheme:dark)]:hidden"
+              priority
+            />
+            <Image
+              src={`${basePath}/images/logo-mark-dark.png`}
+              alt="Kaleb Ramos"
+              fill
+              className="hidden object-contain [@media(prefers-color-scheme:dark)]:block"
+              priority
+            />
+          </span>
           <span className="flex flex-col leading-tight">
             <span className="font-serif text-lg font-semibold tracking-tight">
               Kaleb Ramos

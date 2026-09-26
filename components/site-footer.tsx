@@ -10,13 +10,20 @@ export function SiteFooter() {
         <div className="flex flex-col justify-between gap-8 md:flex-row">
           <div>
             <div className="flex items-center gap-3">
-              <Image
-                src={`${basePath}/images/logo-mark.png`}
-                alt="Kaleb Ramos"
-                width={36}
-                height={36}
-                className="size-9"
-              />
+              <span className="relative flex size-9 shrink-0">
+                <Image
+                  src={`${basePath}/images/logo-mark.png`}
+                  alt="Kaleb Ramos"
+                  fill
+                  className="object-contain [@media(prefers-color-scheme:dark)]:hidden"
+                />
+                <Image
+                  src={`${basePath}/images/logo-mark-dark.png`}
+                  alt="Kaleb Ramos"
+                  fill
+                  className="hidden object-contain [@media(prefers-color-scheme:dark)]:block"
+                />
+              </span>
               <p className="font-serif text-lg font-semibold">{site.name}</p>
             </div>
             <p className="mt-3 text-sm text-muted-foreground">
