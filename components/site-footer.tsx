@@ -1,4 +1,5 @@
-import { site } from '@/lib/site'
+import Image from 'next/image'
+import { site, basePath } from '@/lib/site'
 
 export function SiteFooter() {
   const year = new Date().getFullYear()
@@ -9,9 +10,13 @@ export function SiteFooter() {
         <div className="flex flex-col justify-between gap-8 md:flex-row">
           <div>
             <div className="flex items-center gap-3">
-              <span className="flex size-9 items-center justify-center rounded-md border border-gold font-serif text-sm font-semibold text-gold">
-                KR
-              </span>
+              <Image
+                src={`${basePath}/images/logo-mark.png`}
+                alt="Kaleb Ramos"
+                width={36}
+                height={36}
+                className="size-9"
+              />
               <p className="font-serif text-lg font-semibold">{site.name}</p>
             </div>
             <p className="mt-3 text-sm text-muted-foreground">

@@ -1,8 +1,9 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
-import { whatsappUrl } from '@/lib/site'
+import { whatsappUrl, basePath } from '@/lib/site'
 
 const links = [
   { href: '#areas', label: 'Áreas de Atuação' },
@@ -18,9 +19,14 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href="#top" className="flex items-center gap-3">
-          <span className="flex size-10 items-center justify-center rounded-md border border-gold font-serif text-base font-semibold tracking-tight text-gold">
-            KR
-          </span>
+          <Image
+            src={`${basePath}/images/logo-mark.png`}
+            alt="Kaleb Ramos"
+            width={40}
+            height={40}
+            className="size-10"
+            priority
+          />
           <span className="flex flex-col leading-tight">
             <span className="font-serif text-lg font-semibold tracking-tight">
               Kaleb Ramos
