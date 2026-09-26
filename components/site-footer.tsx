@@ -44,16 +44,19 @@ export function SiteFooter() {
           </div>
 
           <nav className="flex flex-col gap-2 text-sm text-muted-foreground">
-            <a href="#areas" className="transition-colors hover:text-foreground">
+            <a href={`${basePath}/#areas`} className="transition-colors hover:text-foreground">
               Áreas de Atuação
             </a>
-            <a href="#sobre" className="transition-colors hover:text-foreground">
+            <a href={`${basePath}/#sobre`} className="transition-colors hover:text-foreground">
               Sobre
             </a>
-            <a href="#atuacao" className="transition-colors hover:text-foreground">
+            <a href={`${basePath}/#atuacao`} className="transition-colors hover:text-foreground">
               Onde Atuo
             </a>
-            <a href="#contato" className="transition-colors hover:text-foreground">
+            <a href={`${basePath}/blog/`} className="transition-colors hover:text-foreground">
+              Blog
+            </a>
+            <a href={`${basePath}/#contato`} className="transition-colors hover:text-foreground">
               Contato
             </a>
           </nav>

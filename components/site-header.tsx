@@ -6,10 +6,11 @@ import { Menu, X } from 'lucide-react'
 import { whatsappUrl, basePath } from '@/lib/site'
 
 const links = [
-  { href: '#areas', label: 'Áreas de Atuação' },
-  { href: '#sobre', label: 'Sobre' },
-  { href: '#atuacao', label: 'Onde Atuo' },
-  { href: '#contato', label: 'Contato' },
+  { href: `${basePath}/#areas`, label: 'Áreas de Atuação' },
+  { href: `${basePath}/#sobre`, label: 'Sobre' },
+  { href: `${basePath}/#atuacao`, label: 'Onde Atuo' },
+  { href: `${basePath}/blog/`, label: 'Blog' },
+  { href: `${basePath}/#contato`, label: 'Contato' },
 ]
 
 export function SiteHeader() {
@@ -18,7 +19,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#top" className="flex items-center gap-3">
+        <a href={`${basePath}/`} className="flex items-center gap-3">
           <span className="relative flex size-10 shrink-0">
             <Image
               src={`${basePath}/images/logo-mark.png`}
