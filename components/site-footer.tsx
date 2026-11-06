@@ -47,6 +47,12 @@ export function SiteFooter() {
             <a href={`${basePath}/#areas`} className="transition-colors hover:text-foreground">
               Áreas de Atuação
             </a>
+            <a href={`${basePath}/#como-funciona`} className="transition-colors hover:text-foreground">
+              Como Funciona
+            </a>
+            <a href={`${basePath}/#agendamento`} className="transition-colors hover:text-foreground">
+              Agendamento
+            </a>
             <a href={`${basePath}/#sobre`} className="transition-colors hover:text-foreground">
               Sobre
             </a>

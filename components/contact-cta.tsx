@@ -21,7 +21,7 @@ export function ContactCta() {
 
         <div className="mt-10 flex flex-col items-center gap-4">
           <a
-            href={whatsappUrl}
+            href={`https://wa.me/5561983365619?text=${encodeURIComponent(site.whatsappMessage)}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-full bg-gold px-8 py-4 text-sm font-medium text-navy transition-opacity hover:opacity-90"

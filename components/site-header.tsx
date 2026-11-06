@@ -7,6 +7,8 @@ import { whatsappUrl, basePath } from '@/lib/site'
 
 const links = [
   { href: `${basePath}/#areas`, label: 'Áreas de Atuação' },
+  { href: `${basePath}/#como-funciona`, label: 'Como Funciona' },
+  { href: `${basePath}/#agendamento`, label: 'Agendar Consulta' },
   { href: `${basePath}/#sobre`, label: 'Sobre' },
   { href: `${basePath}/#atuacao`, label: 'Onde Atuo' },
   { href: `${basePath}/blog/`, label: 'Blog' },
@@ -46,7 +48,7 @@ export function SiteHeader() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 lg:gap-8 md:flex">
           {links.map((link) => (
             <a
               key={link.href}
@@ -56,6 +58,12 @@ export function SiteHeader() {
               {link.label}
             </a>
           ))}
+          <a
+            href={`${basePath}/#agendamento`}
+            className="rounded-full border border-gold/50 bg-gold/10 px-4 py-2 text-sm font-medium text-gold transition-all hover:bg-gold hover:text-navy"
+          >
+            Agendar
+          </a>
           <a
             href={whatsappUrl}
             target="_blank"
@@ -90,14 +98,23 @@ export function SiteHeader() {
                 {link.label}
               </a>
             ))}
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 rounded-full bg-gold px-5 py-2.5 text-center text-sm font-medium text-navy"
-            >
-              Falar no WhatsApp
-            </a>
+            <div className="mt-2 flex flex-col gap-2">
+              <a
+                href={`${basePath}/#agendamento`}
+                onClick={() => setOpen(false)}
+                className="rounded-full border border-gold/50 bg-gold/10 px-5 py-2.5 text-center text-sm font-medium text-gold"
+              >
+                Agendar Consulta Online
+              </a>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-gold px-5 py-2.5 text-center text-sm font-medium text-navy"
+              >
+                Falar no WhatsApp
+              </a>
+            </div>
           </div>
         </nav>
       )}

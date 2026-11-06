@@ -1,17 +1,20 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Inter, Playfair_Display } from 'next/font/google'
+import { Atkinson_Hyperlegible, Poppins } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({
+const poppins = Poppins({
   subsets: ['latin'],
-  variable: '--font-inter',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-poppins',
   display: 'swap',
 })
 
-const playfair = Playfair_Display({
+const atkinson = Atkinson_Hyperlegible({
   subsets: ['latin'],
-  variable: '--font-playfair',
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-atkinson',
   display: 'swap',
 })
 
@@ -69,7 +72,7 @@ const contentSecurityPolicy = [
   "base-uri 'self'",
   "object-src 'none'",
   "frame-ancestors 'self'",
-  "frame-src 'none'",
+  "frame-src 'self' https://calendar.google.com https://accounts.google.com",
   "img-src 'self' data:",
   "font-src 'self' data:",
   "style-src 'self' 'unsafe-inline'",
@@ -87,11 +90,49 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} ${playfair.variable}`}>
-      {isProduction && (
-        <meta httpEquiv="Content-Security-Policy" content={contentSecurityPolicy} />
-      )}
-      <body className="antialiased font-sans">
+    <html lang="pt-BR" className={`${atkinson.variable} ${poppins.variable} scroll-smooth`}>
+      <head>
+        {isProduction && (
+          <meta httpEquiv="Content-Security-Policy" content={contentSecurityPolicy} />
+        )}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LegalService",
+              "name": "Kaleb dos Santos Ramos — Advocacia",
+              "alternateName": "Kaleb dos Santos Ramos Advogado",
+              "url": "https://advkaleb.com.br",
+              "telephone": "+5561983365619",
+              "email": "advkaleb@gmail.com",
+              "image": "https://advkaleb.com.br/images/kaleb.jpg",
+              "priceRange": "$$",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Luziânia",
+                "addressRegion": "GO",
+                "addressCountry": "BR"
+              },
+              "areaServed": [
+                "Luziânia",
+                "Valparaíso de Goiás",
+                "Cidade Ocidental",
+                "Novo Gama",
+                "Cristalina",
+                "Distrito Federal"
+              ],
+              "founder": {
+                "@type": "Person",
+                "name": "Kaleb dos Santos Ramos",
+                "jobTitle": "Advogado",
+                "identifier": "OAB/DF 74.275"
+              }
+            }),
+          }}
+        />
+      </head>
+      <body className="antialiased font-sans bg-background text-foreground">
         {children}
         {isProduction && <Analytics />}
       </body>
