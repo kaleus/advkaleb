@@ -8,9 +8,9 @@ import { whatsappUrl, basePath } from '@/lib/site'
 const links = [
   { href: `${basePath}/#areas`, label: 'Áreas de Atuação' },
   { href: `${basePath}/#como-funciona`, label: 'Como Funciona' },
-  { href: `${basePath}/#agendamento`, label: 'Agendar Consulta' },
   { href: `${basePath}/#sobre`, label: 'Sobre' },
   { href: `${basePath}/#atuacao`, label: 'Onde Atuo' },
+  { href: `${basePath}/#faq`, label: 'Dúvidas' },
   { href: `${basePath}/blog/`, label: 'Blog' },
   { href: `${basePath}/#contato`, label: 'Contato' },
 ]
@@ -19,9 +19,9 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href={`${basePath}/`} className="flex items-center gap-3">
+    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur-md">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
+        <a href={`${basePath}/`} className="flex shrink-0 items-center gap-3">
           <span className="relative flex size-10 shrink-0">
             <Image
               src={`${basePath}/images/logo-mark.png`}
@@ -38,7 +38,7 @@ export function SiteHeader() {
               priority
             />
           </span>
-          <span className="flex flex-col leading-tight">
+          <span className="flex flex-col leading-tight whitespace-nowrap">
             <span className="font-serif text-lg font-semibold tracking-tight">
               Kaleb Ramos
             </span>
@@ -48,19 +48,19 @@ export function SiteHeader() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-6 lg:gap-8 md:flex">
+        <nav className="hidden items-center gap-5 lg:flex">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="whitespace-nowrap text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.label}
             </a>
           ))}
           <a
             href={`${basePath}/#agendamento`}
-            className="rounded-full border border-gold/50 bg-gold/10 px-4 py-2 text-sm font-medium text-gold transition-all hover:bg-gold hover:text-navy"
+            className="whitespace-nowrap rounded-full border border-gold/50 bg-gold/10 px-4 py-2 text-sm font-medium text-gold transition-all hover:bg-gold hover:text-navy"
           >
             Agendar
           </a>
@@ -68,7 +68,7 @@ export function SiteHeader() {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-gold px-5 py-2 text-sm font-medium text-navy transition-opacity hover:opacity-90"
+            className="whitespace-nowrap rounded-full bg-gold px-5 py-2 text-sm font-medium text-navy transition-opacity hover:opacity-90"
           >
             WhatsApp
           </a>
@@ -77,7 +77,7 @@ export function SiteHeader() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden"
+          className="lg:hidden"
           aria-label={open ? 'Fechar menu' : 'Abrir menu'}
           aria-expanded={open}
         >
@@ -86,7 +86,7 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <nav className="border-t border-border/60 bg-background md:hidden">
+        <nav className="border-t border-border/60 bg-background lg:hidden">
           <div className="mx-auto flex max-w-6xl flex-col gap-1 px-6 py-4">
             {links.map((link) => (
               <a
